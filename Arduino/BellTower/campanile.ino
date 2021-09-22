@@ -1,3 +1,7 @@
+/*
+ * BellTower by L.Mugnetti
+ * V 1.0 22/09/2021
+ */
 #include "Arduino.h"
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
