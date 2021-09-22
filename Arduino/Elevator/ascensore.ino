@@ -1,7 +1,7 @@
 
 /*
  * Elevator by L.Mugnetti
- * v 0.8 28/01/2021
+ * V 1.0 28/01/2021
  */
 #include "Arduino.h"
 #include "SoftwareSerial.h"
