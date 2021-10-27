@@ -1,0 +1,59 @@
+/*
+programma funzionante ricevente segnale 433 mhz per accendere il ricevitore nano , 
+collegare il deviatore interruttore di casa in serie al deviatore del relè.
+collegare la ricevente 433 al pin 2 modulo
+quando arriva impulso pressed 1, eccita il relè funzione passo passo.
+uscita relè pin 3 (led1)
+aggiungere antenna 17 cm al ricevitore
+*/
+#include <RCSwitch.h>
+RCSwitch mySwitch = RCSwitch();
+
+#define pressed1 5780584  // codice che riconosce per l'accensione ( DA PERSONALIZZARE)
+#define pressed2 5780580 // codice che riconosce per lo spegnimento ( DA PERSONALIZZARE)
+// piedinatura        
+const int led1 = 13;
+//variabili di stato
+int led1state=0;
+
+// intervallo ripetizioni
+
+void setup()
+{
+ pinMode(led1,OUTPUT);
+ digitalWrite(led1,HIGH); // lo mette subito alto ( configurazione not per relè SHILD)
+ Serial.begin(9600);
+ mySwitch.enableReceive(0);  //riceve sul pin 2 modulo 433mhz
+ 
+}
+
+void loop() 
+{  
+        
+if (mySwitch.available()) 
+  {
+ int value = mySwitch.getReceivedValue();     
+    if (mySwitch.getReceivedValue())
+      {
+       process();
+      }
+  }
+  mySwitch.resetAvailable();
+  }
+
+void process()
+{
+  unsigned long res = mySwitch.getReceivedValue(); 
+  switch (res) // CASI
+     {
+     case pressed1:        // se arriva il seganle1                       
+          led1state=LOW;  // porta allo stato alto eccita il relè                        
+     break;                           
+     case pressed2:     // se arriva il seganle2
+          led1state=HIGH;      // porta allo stato basso  il relè                                                                            
+     break; 
+  }   
+
+ digitalWrite(led1,led1state);   // trasforma il valore in uscita digitale   
+
+}
