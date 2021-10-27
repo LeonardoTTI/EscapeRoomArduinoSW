@@ -45,12 +45,28 @@ void loop(){
  // Serial.println("Sono vivo eh");
   //delay(400);
     
-  sensorValue0=analogRead(pin0);
-  Serial.println(sensorValue0);
-  sensorValue1=analogRead(pin1);
-  Serial.println(sensorValue1);
-  sensorValue2=analogRead(pin2);
-  Serial.println(sensorValue2);
+  n++;
+  Serial.println(" - ");
+  Serial.print("S1: ");
+  sensorValue0 = analogRead(pin0);
+  Serial.print(sensorValue0);
+  db1 += sensorValue0;
+  Serial.print(" - ");
+  Serial.println(db1/n);
+
+  Serial.print("S2: ");
+  sensorValue1 = analogRead(pin1);
+  Serial.print(sensorValue1);
+  db2 += sensorValue1;
+  Serial.print(" - ");
+  Serial.println(db2/n);
+  
+  Serial.print("S3: ");
+  sensorValue2 = analogRead(pin2);
+  Serial.print(sensorValue2);
+  db3 += sensorValue2;
+  Serial.print(" - ");
+  Serial.println(db3/n);
   
   
   if (sensorValue0 > 750)
