@@ -15,13 +15,13 @@ Throughout each project, I focused on:
 ### 🚪 Elevator  
 An automation system for a **fictional elevator**, integrating multiple components:  
 - **Relay modules** controlling solenoid valves, vibration motors, and lighting.  
-- **Synchronized scene music** management.  
+- **Synchronized scene music** management with DFPlayer Mini module.  
 - **A 433 MHz RF system** for security and automation control.  
 
-### 🔔 Bells  
+### 🔔 BellTower
 An interactive **sound system** that uses:  
 - **Laser beams and photoresistors** to detect rope movement.  
-- **Audio playback** triggered based on movement detection.  
+- **Audio playback** triggered based on movement detection with DFPlayer Mini module.  
 
 ### 📡 RF Tools  
 A **diagnostic toolset** for:  
